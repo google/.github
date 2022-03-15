@@ -1,0 +1,878 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 10, 2022 at 11:04 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `db_saengsom`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_customer`
+--
+
+CREATE TABLE `tb_customer` (
+  `c_id` int(11) NOT NULL,
+  `c_name` varchar(100) NOT NULL,
+  `c_tel` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `c_address` varchar(200) NOT NULL,
+  `c_password` varchar(100) NOT NULL,
+  `c_status` int(1) NOT NULL COMMENT '0:disabled, 1: active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_customer`
+--
+
+INSERT INTO `tb_customer` (`c_id`, `c_name`, `c_tel`, `email`, `c_address`, `c_password`, `c_status`) VALUES
+(1, 'saengsom', '02096774636', 'saengsomvilaithong@gmail.com', 'tanmixai', '8cb2237d0679ca88db6464eac60da96345513964', 1),
+(2, 'test', '02092236960', 'Thipphaphone@gmail.com', 'saiynamngern', '12345', 1),
+(3, 'admin', '02096774636', 'saengsomvilaithong@gmail.com', 'AAAA', '8cb2237d0679ca88db6464eac60da96345513964', 1),
+(4, 'colin', '02093568171', 'linapp929@gmail.com', 'ບ້ານປາກພາງ, ເມືອງຊະນະຄາມ, ແຂວງວຽງຈັນ', 'a803f64de3108dac17dcba605cf412264b08eca9', 1),
+(5, 'bui', '02099856693', 'bui5567@gmail.com', 'ບ້ານປາກມີ້, ເມືອງຊະນະຄາມ, ແຂວງວຽງຈັນ', '69df79bef9287d3bcb8f104a408b06de6a108fd8', 1),
+(6, 'colin', '02093568171', 'KOLYNN@gmail.com', 'parkpharng, sanakham, vientiane', '7c222fb2927d828af22f592134e8932480637c0d', 1),
+(7, 'ຶbo', '02098676772', 'bobie55@gmail.com', 'ບ້ານສາຍນໍ້າເງິນ, ເມືອງໄຊທານີ, ນະຄອນຫຼວງວຽຈັນ', '8cb2237d0679ca88db6464eac60da96345513964', 1),
+(8, 'Anakhin', '0205555555', 'nakhin@gmail.com', 'ດູໄບ', 'a605e9adb6e0f1505fdff6b6536267f5539ec0e6', 1),
+(9, 'nina', '02099673443', 'bosom556@gmail.com', 'k\'jripgii', 'da395cf156dff11a1900403d1c9a67080d7a284a', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_product`
+--
+
+CREATE TABLE `tb_product` (
+  `produc_id` varchar(10) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `price` double NOT NULL,
+  `discount` double NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `unit_id` int(11) NOT NULL,
+  `product_image` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_product`
+--
+
+INSERT INTO `tb_product` (`produc_id`, `product_name`, `price`, `discount`, `category_id`, `unit_id`, `product_image`, `description`) VALUES
+('P000001', 'ໝາກເຜັດໃຫຍ່', 30000, 30, 1, 1, 'product-1.jpg', 'ໝາກເພັດຫວານ ເປັນອາຫານທີ່ອຸດົມສົມບູນດ້ວຍວິຕາມີນ C, Lutenin ແລະ Zeaxanthin ເປັນສານຕໍ່ຕ້ານອຸນຸມູນອີດສະຫຼະທີ່ມີປະສິດທີພາບທີ່ສຸດຊະນິດໜື່ງ ໝາກເພັດທີ່ມີສີສົ້ມຫຼາຍປານກໍ່ຈະມີສານອາຫານຫຼາຍຂື້ນ ໂດຍສະເພາະໝາກເພັດສິຂຽວ ຈະມີວິຕາມີນ 140% ເມື່ອສຸກຈະປ່ຽນເປັນສີແດງ ແລະ ວິຕາມມີນຈະເພີ່ມຂື້ນ ເປັນ ສອງເທົ່າ ຫຼື 280%.'),
+('P000002', 'ໝາກສະຕໍເບີຣີ', 50000, 0, 1, 1, 'product-2.jpg', 'ສະຕໍເບີຣີ ມີສານອາຫານຫຼາຍຢ່າງທີ່ມີປະໂຫຍດຕໍ່ຮ່າງກາຍເຊັ່ນ: ໝາກ ໄມ້ທີ່ບັນຈຸສານວິຕາມິນ C ສູງເຖິງ 140% ໃນຈອກ, ແລະສານ flavonoids, ອາຫານທີ່ມີແຮ່ທາດມີຄຸນສົມບັດພິເສດທີ່ຊ່ວຍໃນການຕ້ານການຜຸພັງ. ໂດຍ Flevonoid ສະຕໍເບີຣີທັງສອງຊະນິດທີ່ພົບໃນ ໝາກ ສະຕໍເບີຣີ, Quercetin ແລະ Kaempferol, ຊ່ວຍປ້ອງກັນບໍ່ໃຫ້ LDL ທຳ ລາຍການຜຸພັງຂອງເສັ້ນເລືອດແດງ.'),
+('P000003', 'ໝາກຖົ່ວຂຽວ', 25000, 0, 1, 1, 'product-3.jpg', 'ຖົ່ວຂຽວສາມາດ ນຳ ໃຊ້ໃນການປຸງແຕ່ງອາຫານທີ່ມີທັງແຊບເຊັ່ນ: ຖົ່ວຂົ້ວ, ນ້ ຳ ແຈ່ວ, ເຂົ້າ ໜົມ ຖົ່ວ, ແກງຂົ້ວກັບຊີ້ນ ໝູ ແລະອື່ນໆ, ແລະອາຫານຫວານຫລືປະສົມເຂົ້າ ໜົມ. ຫຼືປຸງແຕ່ງເປັນອາຫານກະປreadyອງທີ່ກຽມພ້ອມທັງອາຫານແລະແປ້ງເຊັ່ນແກງຖົ່ວກະປ.ອງ ຖົ່ວຂຽວກັບ Collagen ຜົງຖົ່ວຂຽວ, ພ້ອມທີ່ຈະຜະລິດ, ແລະອື່ນໆມັນຍັງຖືກ ນຳ ໃຊ້ເປັນວັດຖຸດິບໃນການຜະລິດເຂົ້າ ໜົມ.'),
+('P000004', 'ກະລ່ຳປີດຳ', 45000, 0, 1, 1, 'product-4.jpg', NULL),
+('P000005', 'ໝາກເລັ່ນ', 35000, 10, 1, 1, 'product-5.jpg', 'ໝາກ ເລັ່ນອຸດົມໄປດ້ວຍວິຕາມິນແລະສານອາຫານຫຼາຍຢ່າງ. ແລະທີ່ໂດດເດັ່ນທີ່ສຸດ ແມ່ນວິຕາມິນ C ແລະວິຕາມິນເອທີ່ພົບໃນ ໝາກ ເລັ່ນ. ມັນຍັງເປັນວິຕາມິນທີ່ມີປະໂຫຍດຕໍ່ຮ່າງກາຍເຊັ່ນກັນ.\r\nໝາກ ເລັ່ນບັນຈຸມີ lycopene. ນັ້ນຈະຊ່ວຍຕ້ານອະນຸມູນອິດສະຫຼະແລະຫຼຸດຜ່ອນຄວາມສ່ຽງຂອງພະຍາດຕ່າງໆ. ເກີດຈາກການຕິດເຊື້ອແລະເສື່ອມສະມັດຕະພາບຂອງຮ່າງກາຍພ້ອມທັງໂລກມະເລັງ, ໂລກຫົວໃຈ, ໂລກກະດູກສັນຫຼັງ, ໂລກຫຼອດເລືອດສະຫມອງແລະພະຍາດຕາຕໍ້.'),
+('P000006', 'ແຄລັອດ', 25000, 20, 1, 1, 'product-7.jpg', 'ຊ່ວຍ ບຳ ລຸງແລະຮັກສາສາຍຕາ ຮັກສາພະຍາດຕາຕໍ້ແລະພະຍາດຕາຕໍ້ດ້ວຍສານຕ້ານອະນຸມູນອິດສະລະ. ເຊິ່ງປະກອບສ່ວນເຂົ້າໃນການຕ້ານການເຖົ້າແກ່ ແລະການປະກົດຕົວຂອງຜູ້ສູງອາຍຸ ຊ່ວຍຫຼຸດລະດັບຄໍເລສເຕີຣອນໃນຮ່າງກາຍ. ຊ່ວຍຮັກສາໂລກຄວາມດັນເລືອດສູງຄຸນສົມບັດຂອງແຄລອດຊ່ວຍຮັກສາລະດັບນໍ້າຕານໃນເລືອດ. ປັບປຸງປະສິດທິພາບໃນລະບົບ ໝູນ ວຽນ, ອື່ນໆ.'),
+('P000007', 'ນ້ຳໝາກກ້ຽງ', 38000, 0, 2, 2, 'product-8.jpg', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_product_category`
+--
+
+CREATE TABLE `tb_product_category` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_product_category`
+--
+
+INSERT INTO `tb_product_category` (`category_id`, `category_name`) VALUES
+(1, 'ຜັກສົດ'),
+(2, 'ໝາກໄມ້'),
+(3, 'ນ້ຳໝາກໄມ້'),
+(4, 'ເຄື່ອງແຫ້ງ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_profile`
+--
+
+CREATE TABLE `tb_profile` (
+  `company_id` int(11) NOT NULL,
+  `company_name` varchar(255) NOT NULL,
+  `company_tel` varchar(50) NOT NULL,
+  `company_email` varchar(50) NOT NULL,
+  `company_address` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_profile`
+--
+
+INSERT INTO `tb_profile` (`company_id`, `company_name`, `company_tel`, `company_email`, `company_address`) VALUES
+(1, 'ຕະຫຼາດສົດ', '+(856)-20 96774636', 'saengsomvilaithong@gmail.com', '	ຖະໜົນ 450 ປີ. ບ້ານ ດົງໂດກ, ເມືອງໄຊທານີ, ນະຄອນຫຼວງວຽງຈັນ, ລາວ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_unit`
+--
+
+CREATE TABLE `tb_unit` (
+  `unit_id` int(11) NOT NULL,
+  `unit_name` varchar(255) NOT NULL,
+  `unit_symbol` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_unit`
+--
+
+INSERT INTO `tb_unit` (`unit_id`, `unit_name`, `unit_symbol`) VALUES
+(1, 'Kilogram', 'KG'),
+(2, 'Bottle', 'BX'),
+(3, 'Test', 'T'),
+(4, 'Test Unit', 'TU'),
+(7, 'Test Unit 666', 'TU5');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tb_customer`
+--
+ALTER TABLE `tb_customer`
+  ADD PRIMARY KEY (`c_id`);
+
+--
+-- Indexes for table `tb_product`
+--
+ALTER TABLE `tb_product`
+  ADD PRIMARY KEY (`produc_id`),
+  ADD KEY `unit_id` (`unit_id`),
+  ADD KEY `category_id` (`category_id`);
+
+--
+-- Indexes for table `tb_product_category`
+--
+ALTER TABLE `tb_product_category`
+  ADD PRIMARY KEY (`category_id`);
+
+--
+-- Indexes for table `tb_profile`
+--
+ALTER TABLE `tb_profile`
+  ADD PRIMARY KEY (`company_id`);
+
+--
+-- Indexes for table `tb_unit`
+--
+ALTER TABLE `tb_unit`
+  ADD PRIMARY KEY (`unit_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tb_customer`
+--
+ALTER TABLE `tb_customer`
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `tb_product_category`
+--
+ALTER TABLE `tb_product_category`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tb_unit`
+--
+ALTER TABLE `tb_unit`
+  MODIFY `unit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tb_product`
+--
+ALTER TABLE `tb_product`
+  ADD CONSTRAINT `tb_product_ibfk_1` FOREIGN KEY (`unit_id`) REFERENCES `tb_unit` (`unit_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_product_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `tb_product_category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+<?php
+include('include/header.php');
+
+$id=$_GET['id'];
+$sql="SELECT * FROM tb_product WHERE produc_id='$id'";
+$db->query($sql);
+$product=$db->single();
+
+$db->query("SELECT * FROM tb_product limit 4");
+$related_product=$db->resultset();
+
+?>
+<div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">ຕະຫຼາດສົດ</a></span> <span class="mr-2"><a href="index.html">ຜັກປອດສານເຄມີ</a></span> </p>
+                <h1 class="mb-0 bread">ລາຍລະອຽດສີນຄ້າ</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-5 ftco-animate">
+                <a href="assets/images/<?=   $product['product_image'] ?>" class="image-popup"><img src="assets/images/<?=   $product['product_image'] ?>" class="img-fluid" alt="Colorlib Template"></a>
+            </div>
+            <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                <h3><?= $product['product_name'] ?></h3>
+                <p class="price"><span><?= number_format($product['price']) ?> ກີບ</span></p>
+                <p>
+                    <?= $product['description'] ?>
+                </p>
+                <div class="row mt-4">
+
+                    <div class="w-100"></div>
+                    <div class="input-group col-md-6 d-flex mb-3">
+	             	<span class="input-group-btn mr-2">
+	                	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
+	                   <i class="ion-ios-remove"></i>
+	                	</button>
+	            		</span>
+                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
+                        <span class="input-group-btn ml-2">
+	                	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+	                     <i class="ion-ios-add"></i>
+	                 </button>
+	             	</span>
+                    </div>
+                    <div class="w-100"></div>
+
+                </div>
+                <p><a href="cart.html" class="btn btn-black py-3 px-5">ເພີ່ມເຂົ້າກະຕ່າ</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-3 pb-3">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <span class="subheading">ລາຍການ</span>
+                <h2 class="mb-4">ສີນຄ້າແນະນຳ</h2>
+                <p>ພວກເຮົານຳເຂົ້າຈາກເຂດຫ່າງໄກ, ປາສະຈາກສານເຄມີ, ຖືກຕ້ອງຕາມຫຼັກອະນາໄມ</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <?php
+            foreach ($related_product as $item) {
+
+                ?>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="product">
+                        <a href="detail.php?id=<?=   $item['produc_id'] ?>" class="img-prod"><img class="img-fluid"
+                                                                                                  src="assets/images/<?php echo $item['product_image'] ?>"
+                                                                                                  alt="Colorlib Template">
+                            <?php if ($item['discount'] > 0) { ?>
+
+                                <span class="status"><?php echo $item['discount'] ?>%</span>
+
+                            <?php } ?>
+                            <div class="overlay"></div>
+                        </a>
+                        <div class="text py-3 pb-4 px-3 text-center">
+                            <h3><a href="#"><?php echo $item['product_name'] ?></a></h3>
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price">
+                                        <?php if ($item['discount'] > 0) { ?>
+                                            <span class="mr-2 price-dc"><?php echo number_format($item['price']) ?> ກີບ</span>
+                                        <?php } ?>
+                                        <span class="price-sale"><?php echo number_format($item['price'] - $item['price'] * $item['discount'] / 100) ?> ກີບ</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="bottom-area d-flex px-3">
+                                <div class="m-auto d-flex">
+                                    <a href="#"
+                                       class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                        <span><i class="ion-ios-menu"></i></span>
+                                    </a>
+                                    <a href="#"
+                                       class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                        <span><i class="ion-ios-cart"></i></span>
+                                    </a>
+                                    <a href="#" class="heart d-flex justify-content-center align-items-center ">
+                                        <span><i class="ion-ios-heart"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <?php } ?>
+
+
+
+        </div>
+    </div>
+</section>
+<?php
+include('include/footer.php');
+?>
+<?php
+include('include/header.php');
+
+$sql = "SELECT * FROM tb_product limit 10";
+$db->query($sql);
+$product = $db->resultset();
+
+?>
+    <!-- END nav -->
+
+    <section id="home-section" class="hero">
+        <div class="home-slider owl-carousel">
+            <div class="slider-item" style="background-image: url(assets/images/bg_1.jpg);">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+                        <div class="col-md-12 ftco-animate text-center">
+                            <h1 class="mb-1">ພວກເຮົາໃຫ້ບໍລິການຂາຍຜັກ ແລະ ໝາກໄມ້</h1>
+                            <h2 class="subheading mb-4">ພວກເຮົາບໍລິການສົ່ງເຖີງທີ່</h2>
+                            <p><a href="#" class="btn btn-primary">ສັ່ງຊື້ເລີຍ</a></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-item" style="background-image: url(assets/images/bg_2.jpg);">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+                        <div class="col-sm-12 ftco-animate text-center">
+                            <h1 class="mb-2">100% ປອດສານເຄມີ ແລະ ສະອາດ</h1>
+                            <h2 class="subheading mb-4">ພວກເຮົາບໍລິການສົ່ງເຖີງທີ່</h2>
+                            <p><a href="#" class="btn btn-primary">ສັ່ງຊື້ເລີຍ</a></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row no-gutters ftco-services">
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-shipped"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">ບໍລິການສົ່ງຟຣີ</h3>
+                            <span>ສັ່ງຊື້ຂັ້ນຕ່ຳ 100,000 ກີບ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-diet"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">ຮັບປະກັນຄວາມສົດ</h3>
+                            <span>ພວກເຮົາເກັບຮັກສາຢ່າງດີ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-award"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">ຄຸນນະພາບສູງ</h3>
+                            <span>ມາດຕະຖານສາກົນ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-customer-service"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">ໃຫ້ບໍລິການ</h3>
+                            <span>24/7 ຊົ່ວໂມງ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-category ftco-no-pt">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-6 order-md-last align-items-stretch d-flex">
+                            <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex"
+                                 style="background-image: url(assets/images/category.jpg);">
+                                <div class="text text-center">
+                                    <h2>ຜັກສົດ</h2>
+                                    <p>ຊ່ວຍໃຫ້ທ່ານມີສຸຂະພາບທີ່ດີຂື້ນ</p>
+                                    <p><a href="#" class="btn btn-primary">ເບີ່ງສີນຄ້າ</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+                                 style="background-image: url(assets/images/category-1.jpg);">
+                                <div class="text px-3 py-1">
+                                    <h2 class="mb-0"><a href="#">ໝາກໄມ້</a></h2>
+                                </div>
+                            </div>
+                            <div class="category-wrap ftco-animate img d-flex align-items-end"
+                                 style="background-image: url(assets/images/category-2.jpg);">
+                                <div class="text px-3 py-1">
+                                    <h2 class="mb-0"><a href="#">ຜັກສົດ</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+                         style="background-image: url(assets/images/category-3.jpg);">
+                        <div class="text px-3 py-1">
+                            <h2 class="mb-0"><a href="#">ນ້ຳໝາກໄມ້</a></h2>
+                        </div>
+                    </div>
+                    <div class="category-wrap ftco-animate img d-flex align-items-end"
+                         style="background-image: url(assets/images/category-4.jpg);">
+                        <div class="text px-3 py-1">
+                            <h2 class="mb-0"><a href="#">ເຄື່ອງແຫ້ງ</a></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-3 pb-3">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <span class="subheading">ສີນຄ້າແນະນຳ</span>
+                    <h2 class="mb-4">ຜະລິດຕະພັນຂອງພວກເຮົາ</h2>
+                    <p>ພວກເຮົານຳເຂົ້າຈາກເຂດຫ່າງໄກ, ປາສະຈາກສານເຄມີ, ຖືກຕ້ອງຕາມຫຼັກອະນາໄມ</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <?php
+                foreach ($product as $item) {
+
+                    ?>
+                    <div class="col-md-6 col-lg-3 ftco-animate">
+                        <div class="product">
+                            <a href="#" class="img-prod"><img class="img-fluid"
+                                                              src="assets/images/<?php echo $item['product_image'] ?>"
+                                                              alt="Colorlib Template">
+                                <?php if ($item['discount'] > 0) { ?>
+
+                                    <span class="status"><?php echo $item['discount'] ?>%</span>
+
+                                <?php } ?>
+                                <div class="overlay"></div>
+                            </a>
+                            <div class="text py-3 pb-4 px-3 text-center">
+                                <h3><a href="#"><?php echo $item['product_name'] ?></a></h3>
+                                <div class="d-flex">
+                                    <div class="pricing">
+                                        <p class="price">
+                                            <?php if ($item['discount'] > 0) { ?>
+                                                <span class="mr-2 price-dc"><?php echo $item['price'] ?> ກີບ</span>
+                                            <?php } ?>
+                                            <span class="price-sale"><?php echo $item['price'] - $item['price'] * $item['discount'] / 100 ?> ກີບ</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="bottom-area d-flex px-3">
+                                    <div class="m-auto d-flex">
+                                        <a href="#"
+                                           class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                            <span><i class="ion-ios-menu"></i></span>
+                                        </a>
+                                        <a href="#"
+                                           class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                            <span><i class="ion-ios-cart"></i></span>
+                                        </a>
+                                        <a href="#" class="heart d-flex justify-content-center align-items-center ">
+                                            <span><i class="ion-ios-heart"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php } ?>
+            </div>
+        </div>
+    </section>
+
+
+<?php
+include('include/footer.php');
+?>
+<?php
+include ('system/core.php');
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ຕະຫຼາດສົດ</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="assets/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="assets/css/aos.css">
+
+    <link rel="stylesheet" href="assets/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="assets/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/icomoon.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/mystyle.css">
+</head>
+<div id="loading"></div>
+<body class="goto-here">
+
+<section class="ftco-section contact-section bg-light">
+    <div class="container">
+        <div class="row block-9">
+            <div class="col-md-6 order-md-last d-flex">
+
+                <form action="controller/login.php" method="post" class="bg-white p-5 contact-form">
+                    <h3>ເຂົ້າສູ່ລະບົບ</h3>
+                    <div class="form-group">
+                        <label class="control-label">ຊື່ເຂົ້າລະບົບ</label>
+                        <input type="text" class="form-control" name="username" placeholder="ຊື່ເຂົ້າລະບົບ">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">ລະຫັດຜ່ານ</label>
+                        <input type="password" class="form-control" name="password" placeholder="xxxxx">
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="submit" value="ເຂົ້າສູ່ລະບົບ" class="btn btn-primary py-3 px-5">
+                        <a href="register.php"  class="btn btn-primary py-3 px-5"><i class="fi-rr-unlock"></i>ລົງທະບຽນ</a>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="col-md-6 d-flex">
+                <img src="assets/images/about.jpg" width="100%" height="audio">
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.easing.1.3.js"></script>
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/jquery.stellar.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/aos.js"></script>
+<script src="assets/js/jquery.animateNumber.min.js"></script>
+<script src="assets/js/bootstrap-datepicker.js"></script>
+<script src="assets/js/scrollax.min.js"></script>
+
+<script src="assets/js/main.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        jQuery('#loading').fadeOut(1500);
+    });
+</script>
+
+</body>
+</html>
+
+<?php
+include ('include/header.php');
+
+$sql = "SELECT * FROM tb_product";
+$db->query($sql);
+$product = $db->resultset();
+
+?>
+
+
+
+<div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">ຕະຫຼາດສົດ</a></span> <span class="mr-2"><a href="index.html">ຜັກປອດສານເຄມີ</span></p>
+                <h1 class="mb-0 bread">ສິນຄ້າຂອງພວກເຮົາ</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 mb-5 text-center">
+                <ul class="product-category">
+                    <li><a href="#" class="active">ທັງໝົດ</a></li>
+                    <li><a href="#">ຜັກສົດ</a></li>
+                    <li><a href="#">ໝາກໄມ້</a></li>
+                    <li><a href="#">ນ້ຳໝາກໄມ້</a></li>
+                    <li><a href="#">ເຄື່ອງແຫ້ງ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <?php
+            foreach ($product as $item) {
+
+                ?>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="product">
+                        <a href="detail.php?id=<?=   $item['produc_id'] ?>" class="img-prod"><img class="img-fluid"
+                                                          src="assets/images/<?php echo $item['product_image'] ?>"
+                                                          alt="Colorlib Template">
+                            <?php if ($item['discount'] > 0) { ?>
+
+                                <span class="status"><?php echo $item['discount'] ?>%</span>
+
+                            <?php } ?>
+                            <div class="overlay"></div>
+                        </a>
+                        <div class="text py-3 pb-4 px-3 text-center">
+                            <h3><a href="#"><?php echo $item['product_name'] ?></a></h3>
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price">
+                                        <?php if ($item['discount'] > 0) { ?>
+                                            <span class="mr-2 price-dc"><?php echo number_format($item['price']) ?> ກີບ</span>
+                                        <?php } ?>
+                                        <span class="price-sale"><?php echo number_format($item['price'] - $item['price'] * $item['discount'] / 100) ?> ກີບ</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="bottom-area d-flex px-3">
+                                <div class="m-auto d-flex">
+                                    <a href="#"
+                                       class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                        <span><i class="ion-ios-menu"></i></span>
+                                    </a>
+                                    <a href="#"
+                                       class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                        <span><i class="ion-ios-cart"></i></span>
+                                    </a>
+                                    <a href="#" class="heart d-flex justify-content-center align-items-center ">
+                                        <span><i class="ion-ios-heart"></i></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <?php } ?>
+
+
+
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+                        <li><a href="#">&lt;</a></li>
+                        <li class="active"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php
+include ('include/footer.php');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ຕະຫຼາດສົດ</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="assets/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="assets/css/aos.css">
+
+    <link rel="stylesheet" href="assets/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="assets/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/icomoon.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/mystyle.css">
+</head>
+<div id="loading"></div>
+<body class="goto-here">
+
+<section class="ftco-section contact-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-12">
+
+            </div>
+            <div class="col-md-6 col-12">
+                <form action="controller/register.php" method="post" class="bg-white p-5 contact-form">
+                    <h3>ລົງທະບຽນເປັນສະມາຊີກ</h3>
+
+                    <div class="form-group">
+                        <label for="username">ຊື່ຜູ້ໃຊ້</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="ຊື່ຜູ້ໃຊ້" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">ລະຫັດຜ່ານ</label>
+                        <input type="password" class="form-control" id="Password" name="password" placeholder="ລະຫັດຜ່ານ" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">ເບີໂທ</label>
+                        <input type="text" class="form-control" id="Tel" name="tel" placeholder="020 96774636" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">ອີເມວ</label>
+                        <input type="email" class="form-control" id="Email" name="email"
+                               placeholder="saengsomvilaithong@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">ທີ່ຢູ່</label>
+                        <textarea class="form-control" rows="5" id="address"name="address"
+                                  placeholder="ບ້ານ..., ເມືອງ..., ແຂວງ..." required></textarea>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <input type="submit" value="ລົງທະບຽນ" class="btn btn-primary py-3 px-5">
+                        <a href="login.php" class="btn btn-primary py-3 px-5">ເຂົ້າລະບົບ</a>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-md-3 col-12">
+
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.easing.1.3.js"></script>
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/jquery.stellar.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/aos.js"></script>
+<script src="assets/js/jquery.animateNumber.min.js"></script>
+<script src="assets/js/bootstrap-datepicker.js"></script>
+<script src="assets/js/scrollax.min.js"></script>
+
+<script src="assets/js/main.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        jQuery('#loading').fadeOut(1500);
+    });
+</script>
+
+</body>
+</html>
