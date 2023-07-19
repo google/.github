@@ -1,7 +1,5 @@
-Please use https://g.co/vulnz to report security vulnerabilities.
+Please use [this link](https://g.co/vulnz) to report security vulnerabilities.
 
-We use https://g.co/vulnz for our intake and triage. For valid issues we will do coordination and disclosure here on
-GitHub (including using a GitHub Security Advisory when necessary).
+We utilize the reporting system at [https://g.co/vulnz](https://g.co/vulnz) for intake and triage of security vulnerabilities. Once a valid vulnerability is identified, we will engage in coordination and disclosure through this GitHub repository, including using GitHub Security Advisory when necessary.
 
-The Google Security Team will process your report within a day, and respond within a week (although it will depend on the severity of your report).
-
+The Google Security Team aims to process your report within one business day and respond within one week, though the response time may vary based on the severity of the reported vulnerability.
