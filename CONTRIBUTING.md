@@ -1,28 +1,19 @@
 # How to Contribute
 
-We'd love to accept your patches and contributions to this project. There are
-just a few small guidelines you need to follow.
+We would love to accept your patches and contributions to this project. To ensure a smooth collaboration, please follow these guidelines:
 
 ## Contributor License Agreement
 
-Contributions to this project must be accompanied by a Contributor License
-Agreement. You (or your employer) retain the copyright to your contribution;
-this simply gives us permission to use and redistribute your contributions as
-part of the project. Head over to <https://cla.developers.google.com/> to see
-your current agreements on file or to sign a new one.
+All contributions to this project must be accompanied by a signed Contributor License Agreement (CLA). By submitting your contribution, you (or your employer) retain the copyright to your work while granting us the necessary permissions to use and redistribute your contributions as part of the project. Please visit <https://cla.developers.google.com/> to review your current agreements on file or sign a new one if necessary.
 
-You generally only need to submit a CLA once, so if you've already submitted one
-(even if it was for a different project), you probably don't need to do it
-again.
+Typically, you only need to submit a CLA once. If you have already submitted one, even for a different project, you likely won't need to do it again.
 
-## Code reviews
+## Code Reviews
 
-All submissions, including submissions by project members, require review. We
-use GitHub pull requests for this purpose. Consult
-[GitHub Help](https://help.github.com/articles/about-pull-requests/) for more
-information on using pull requests.
+All submissions, including those from project members, undergo a thorough code review process. We utilize GitHub pull requests for this purpose. Please refer to the [GitHub Help](https://help.github.com/articles/about-pull-requests/) documentation for more details on using pull requests.
 
 ## Community Guidelines
 
-This project follows [Google's Open Source Community
-Guidelines](https://opensource.google/conduct/).
+This project adheres to [Google's Open Source Community Guidelines](https://opensource.google/conduct/). We encourage all participants to review and follow these guidelines, which promote a respectful and inclusive environment for collaboration.
+
+We appreciate your contributions and look forward to your involvement in the project!
