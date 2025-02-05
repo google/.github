@@ -1,63 +1,130 @@
-# Google Open Source Community Guidelines
+# Contributor Covenant Code of Conduct
 
-At Google, we recognize and celebrate the creativity and collaboration of open
-source contributors and the diversity of skills, experiences, cultures, and
-opinions they bring to the projects and communities they participate in.
+## Our Pledge
 
-Every one of Google's open source projects and communities are inclusive
-environments, based on treating all individuals respectfully, regardless of
-gender identity and expression, sexual orientation, disabilities,
-neurodiversity, physical appearance, body size, ethnicity, nationality, race,
-age, religion, or similar personal characteristic.
+We as members, contributors, and leaders pledge to make participation in our
+community a harassment-free experience for everyone, regardless of age, body
+size, visible or invisible disability, ethnicity, sex characteristics, gender
+identity and expression, level of experience, education, socio-economic status,
+nationality, personal appearance, race, religion, or sexual identity
+and orientation.
 
-We value diverse opinions, but we value respectful behavior more.
+We pledge to act and interact in ways that contribute to an open, welcoming,
+diverse, inclusive, and healthy community.
 
-Respectful behavior includes:
+## Our Standards
 
-* Being considerate, kind, constructive, and helpful.
-* Not engaging in demeaning, discriminatory, harassing, hateful, sexualized, or
-  physically threatening behavior, speech, and imagery.
-* Not engaging in unwanted physical contact.
+Examples of behavior that contributes to a positive environment for our
+community include:
 
-Some Google open source projects [may adopt][] an explicit project code of
-conduct, which may have additional detailed expectations for participants. Most
-of those projects will use our [modified Contributor Covenant][].
+* Demonstrating empathy and kindness toward other people
+* Being respectful of differing opinions, viewpoints, and experiences
+* Giving and gracefully accepting constructive feedback
+* Accepting responsibility and apologizing to those affected by our mistakes,
+  and learning from the experience
+* Focusing on what is best not just for us as individuals, but for the
+  overall community
 
-[may adopt]: https://opensource.google/docs/releasing/preparing/#conduct
-[modified Contributor Covenant]: https://opensource.google/docs/releasing/template/CODE_OF_CONDUCT/
+Examples of unacceptable behavior include:
 
-## Resolve peacefully
+* The use of sexualized language or imagery, and sexual attention or
+  advances of any kind
+* Trolling, insulting or derogatory comments, and personal or political attacks
+* Public or private harassment![1000004171](https://github.com/user-attachments/assets/86e78b57-b304-43f6-ab98-b4ddfcb9c81e)
+![1000004190](https://github.com/user-attachments/assets/c10ddb9a-d6c8-4635-9410-ddb3e470ff50)
 
-We do not believe that all conflict is necessarily bad; healthy debate and
-disagreement often yields positive results. However, it is never okay to be
-disrespectful.
+* Publishing others' private information, such as a physical or email
+  address, without their explicit permission
+* Other conduct which could reasonably be considered inappropriate in a
+  professional setting
 
-If you see someone behaving disrespectfully, you are encouraged to address the
-behavior directly with those involved. Many issues can be resolved quickly and
-easily, and this gives people more control over the outcome of their dispute.
-If you are unable to resolve the matter for any reason, or if the behavior is
-threatening or harassing, report it. We are dedicated to providing an
-environment where participants feel welcome and safe.
+## Enforcement Responsibilities
 
-## Reporting problems
+Community leaders are responsible for clarifying and enforcing our standards of
+acceptable behavior and will take appropriate and fair corrective action in
+response to any behavior that they deem inappropriate, threatening, offensive,
+or harmful.
 
-Some Google open source projects may adopt a project-specific code of conduct.
-In those cases, a Google employee will be identified as the Project Steward,
-who will receive and handle reports of code of conduct violations. In the event
-that a project hasn’t identified a Project Steward, you can report problems by
-emailing opensource@google.com.
+Community leaders have the right and responsibility to remove, edit, or reject
+comments, commits, code, wiki edits, issues, and other contributions that are
+not aligned to this Code of Conduct, and will communicate reasons for moderation
+decisions when appropriate.
 
-We will investigate every complaint, but you may not receive a direct response.
-We will use our discretion in determining when and how to follow up on reported
-incidents, which may range from not taking action to permanent expulsion from
-the project and project-sponsored spaces. We will notify the accused of the
-report and provide them an opportunity to discuss it before any action is
-taken. The identity of the reporter will be omitted from the details of the
-report supplied to the accused. In potentially harmful situations, such as
-ongoing harassment or threats to anyone's safety, we may take action without
-notice.
+## Scope
 
-*This document was adapted from the [IndieWeb Code of Conduct][] and can also
-be found at <https://opensource.google/conduct/>.*
+This Code of Conduct applies within all community spaces, and also applies when
+an individual is officially representing the community in public spaces.
+Examples of representing our community include using an official e-mail address,
+posting via an official social media account, or acting as an appointed
+representative at an online or offline event.
 
-[IndieWeb Code of Conduct]: https://indieweb.org/code-of-conduct
+## Enforcement
+
+Instances of abusive, harassing, or otherwise unacceptable behavior may be
+reported to the community leaders responsible for enforcement at
+.
+All complaints will be reviewed and investigated promptly and fairly.
+
+All community leaders are obligated to respect the privacy and security of the
+reporter of any incident.
+
+## Enforcement Guidelines
+
+Community leaders will follow these Community Impact Guidelines in determining
+the consequences for any action they deem in violation of this Code of Conduct:
+
+### 1. Correction
+
+**Community Impact**: Use of inappropriate language or other behavior deemed
+unprofessional or unwelcome in the community.
+
+**Consequence**: A private, written warning from community leaders, providing
+clarity around the nature of the violation and an explanation of why the
+behavior was inappropriate. A public apology may be requested.
+
+### 2. Warning
+
+**Community Impact**: A violation through a single incident or series
+of actions.
+
+**Consequence**: A warning with consequences for continued behavior. No
+interaction with the people involved, including unsolicited interaction with
+those enforcing the Code of Conduct, for a specified period of time. This
+includes avoiding interactions in community spaces as well as external channels
+like social media. Violating these terms may lead to a temporary or
+permanent ban.
+
+### 3. Temporary Ban
+
+**Community Impact**: A serious violation of community standards, including
+sustained inappropriate behavior.
+
+**Consequence**: A temporary ban from any sort of interaction or public
+communication with the community for a specified period of time. No public or
+private interaction with the people involved, including unsolicited interaction
+with those enforcing the Code of Conduct, is allowed during this period.
+Violating these terms may lead to a permanent ban.
+
+### 4. Permanent Ban
+
+**Community Impact**: Demonstrating a pattern of violation of community
+standards, including sustained inappropriate behavior,  harassment of an
+individual, or aggression toward or disparagement of classes of individuals.
+
+**Consequence**: A permanent ban from any sort of public interaction within
+the community.
+
+## Attribution
+
+This Code of Conduct is adapted from the [Contributor Covenant][homepage],
+version 2.0, available at
+https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
+
+Community Impact Guidelines were inspired by [Mozilla's code of conduct
+enforcement ladder](https://github.com/mozilla/diversity).
+
+[homepage]: https://www.contributor-covenant.org
+
+For answers to common questions about this code of conduct, see the FAQ at
+https://www.contributor-covenant.org/faq. Translations are available at
+https://www.contributor-covenant.org/translations.
