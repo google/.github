@@ -1,0 +1,15 @@
+rules:
+  - id: pull-request-target-needs-exception
+    languages:
+      - yaml
+    severity: WARNING
+    message: pull_request_target for Google repos is only approved by exception.
+    metadata:
+      category: best-practice
+      technology:
+        - github-actions      
+    patterns:
+      - pattern-either:
+          - patterns:
+              - pattern-inside: "{on: ...}"
+              - pattern: pull_request_target
