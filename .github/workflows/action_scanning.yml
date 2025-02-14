@@ -28,7 +28,7 @@ jobs:
         env:
           GH_REPO_OWNER: ${{ github.repository_owner }}
         with:
-          repository: 'http://github.com/${{ env.GH_REPO_OWNER }}/.github'
+          repository: '${{ env.GH_REPO_OWNER }}/.github'
           path: action_scanning
 
       - name: Checkout Code
