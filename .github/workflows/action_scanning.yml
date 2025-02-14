@@ -25,8 +25,12 @@ jobs:
     steps:
       - name: Checkout Workflow Config
         uses: actions/checkout@v4
+        env:
+          GH_ACTION_REPOSITORY: ${{ github.action_repository }}
+          GH_ACTION_REF: ${{ github.action_ref }}
         with:
-          repository: ${github.action_repository}
+          repository: '${{ env.GH_ACTION_REPOSITORY }}'
+          ref: '${{ env.GH_ACTION_REF }}'
           path: action_scanning
 
       - name: Checkout Code
