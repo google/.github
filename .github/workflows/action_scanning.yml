@@ -33,11 +33,9 @@ jobs:
 
       - name: Checkout Code
         uses: actions/checkout@v4    
-        with:
-          path: code_to_scan
     
       - name: Run Actions semgrep scan
-        run: semgrep scan --sarif --config action_scanning/semgrep-rules/actions code_to_scan >> semgrep-results-actions.sarif
+        run: semgrep scan --sarif --config action_scanning/semgrep-rules/actions >> semgrep-results-actions.sarif
     
       - name: Save Actions SARIF results as artifact
         uses: actions/upload-artifact@v4
