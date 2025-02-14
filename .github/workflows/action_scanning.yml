@@ -23,12 +23,19 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Workflow Config
         uses: actions/checkout@v4
-    
+        with:
+          repository: ${github.action_repository}
+          path: action_scanning
+
+      - name: Checkout Code
+        uses: actions/checkout@v4    
+        with:
+          path: code_to_scan
     
       - name: Run Actions semgrep scan
-        run: semgrep scan --sarif --config semgrep-rules/actions >> semgrep-results-actions.sarif
+        run: semgrep scan --sarif --config action_scanning/semgrep-rules/actions code_to_scan >> semgrep-results-actions.sarif
     
       - name: Save Actions SARIF results as artifact
         uses: actions/upload-artifact@v4
