@@ -2,6 +2,7 @@ name: Scan GitHub Action workflows files for security issues
 
 on:
   pull_request: {}
+  pull_request_target: {}
   workflow_dispatch: {}
   push:
      paths:
