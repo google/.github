@@ -1,0 +1,50 @@
+name: Scan GitHub Action workflows files for security issues
+
+on:
+  pull_request: {}
+  workflow_dispatch: {}
+  push:
+     paths:
+      - '.github/workflows/**.ya?ml'
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  semgrep:
+    name: semgrep-oss/scan
+    runs-on: ubuntu-latest
+
+    container:
+      image: semgrep/semgrep
+
+    # Skip any PR created by dependabot to avoid permission issues:
+    if: (github.actor != 'dependabot[bot]')
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4    
+        
+      - name: Checkout Workflow Config
+        uses: actions/checkout@v4
+        env:
+          GH_REPO_OWNER: ${{ github.repository_owner }}
+        with:
+          repository: '${{ env.GH_REPO_OWNER }}/.github'
+          path: action_scanning
+    
+      - name: Run Actions semgrep scan
+        run: semgrep scan --sarif --config action_scanning/semgrep-rules/actions >> semgrep-results-actions.sarif
+    
+      - name: Save Actions SARIF results as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: semgrep-scan-results-actions
+          path: semgrep-results-actions.sarif
+    
+      - name: Upload Actions SARIF result to the GitHub Security Dashboard
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: semgrep-results-actions.sarif
+        if: always()
