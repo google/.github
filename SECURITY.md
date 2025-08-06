@@ -5,3 +5,4 @@ GitHub (including using a GitHub Security Advisory when necessary).
 
 The Google Security Team will process your report within a day, and respond within a week (although it will depend on the severity of your report).
 
+ some information is leaked on your platform which is not good for google please find and correct it.. 
