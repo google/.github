@@ -1,0 +1,6 @@
+{
+    "github-enterprise.uri": "",
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "master"
+    ]
+}

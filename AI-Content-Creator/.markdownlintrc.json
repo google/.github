@@ -1,0 +1,34 @@
+{
+  "default": true,
+  "MD003": {
+    "style": "consistent"
+  },
+  "MD004": {
+    "style": "consistent"
+  },
+  "MD007": {
+    "indent": 2
+  },
+  "MD013": {
+    "line_length": 120,
+    "heading_line_length": 120,
+    "code_line_length": 120,
+    "code_blocks": true,
+    "tables": false,
+    "headers": true,
+    "headers_length": 120,
+    "strict": false,
+    "stern": false
+  },
+  "MD024": {
+    "siblings_only": true
+  },
+  "MD025": {
+    "front_matter_title": ""
+  },
+  "MD033": false,
+  "MD034": false,
+  "MD040": false,
+  "no-hard-tabs": false,
+  "whitespace": false
+}

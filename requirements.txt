@@ -1,0 +1,15 @@
+🔥# المكتبات الأساسية للذكاء الاصطناعي
+torch
+torchvision
+diffusers
+transformers
+accelerate
+safetensors
+
+# مكتبات معالجة الصور والفيديو
+pillow
+opencv-python
+moviepy
+
+# مكتبات إضافية لتحسين الأداء
+huggingface_hub
